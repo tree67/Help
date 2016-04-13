@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <!--
+   CMST 388 7980
+   Project 1: From Validation
+   Author: Teresa Sheridan
+   Date: 04/13/2016
+  -->
+  
+  <meta charset="UTF-8"/>
+  <link href="form.css" rel="stylesheet" type="text/css"/>
+  <title>Form Validation</title>
+  
+  
+  <script type="text/javascript">
+	function make_blank() {
+		document.personalForm.type.placeholder="";
+    }
+
+
+  </script>
+	
+	
+</head>
+
+<body>
+	
+		<form id ="personalForm" action="/" method="post">
+			<h3>Personal Information</h3>
+			<h4>Please fill out the form below</h4>
+				<div>
+					<label>
+						<span>First Name: (required)</span>
+						<input type="text" placeholder='Please enter your first name.' 
+						onclick="make_blank();"Enter first name/>
+						
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Last Name: (require)</span>
+						<input placeholder="Please enter your last name." type="text"
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Email: (required)</span>
+						<input placeholder="Please enter your email address." type="text"
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Password: (required)</span>
+						<input placeholder="Please enter your password." type="text"
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Re-type Password: (required)</span>
+						<input placeholder="Please re-type your password." type="text"
+					</label>
+				</div>
+				<input name="btnSubmit" type="submit" value="Submit" />
+
+		</form>
+
+
+
+</body>
+</html>
