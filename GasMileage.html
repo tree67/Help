@@ -14,15 +14,11 @@ Date: 03/28/2016
 <script language="JavaScript">
 <!--
 function calcMPG() {
-	var stMiles = document.myform.txtStMiles.value;
-	var endMiles = document.myform.txtEndMiles.value;
-	var gallons = document.myform.txtGallons.value;
-		if (alert(isNaN)){
-			document.write("Please enter a number.");
-		   }else {
-		   (stMiles>0) && (endMiles>0) && (gallons>0)
-		   mpg= (endMiles-stMiles)/gallons;
-		   }
+	var stMiles = document.myform.txtstMiles.value;
+	var endMiles = document.myform.txtendMiles.value;
+	var gallons = document.myform.txtgallons.value;
+	mpg = (endMiles - stMiles) / gallons;
+	document.myform.mpg.value = mpg;	
 	
 }
 //-->
@@ -30,14 +26,14 @@ function calcMPG() {
 </head>
 
 <body>
-<h1>Recognize your target heart rate.</h1>
+<h1>Calculate miles per gallon used for trip.</h1>
 
 <form name="myform">
-Input - Start Miles: <input type="text" name="stMiles" value="0" onchange="calcMPG();" /><br />
-Input - Ending Miles: <input type="text" name="endMiles" value="0" onchange="calcMPG();" /><br />
-Input - Gallons Used: <input type="text" name="gallons" value="0" onchange="calcMPG();"><br />
+ Start Miles: <input type="text" name="stMiles" value="0"  /><br />
+ Ending Miles: <input type="text" name="endMiles" value="0"  /><br />
+ Gallons Used: <input type="text" name="gallons" value="0"  /><br />
 <input type="button" value="calculate" onClick="calcMPG()"><br />
-Output - Miles per Gallon: <input type="text" name="mpg" value="0"><br />
+  Miles per Gallon: <input type="text" name="mpg" value="0"><br />
 <input type = "reset" value = "Reset" />
 </form>
 </body>
