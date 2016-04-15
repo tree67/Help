@@ -14,9 +14,9 @@ Date: 04/15/2016
 <script language="JavaScript">
 <!--
 function calcMPG() {
-	var stMiles = document.myform.txtstMiles.value;
-	var endMiles = document.myform.txtendMiles.value;
-	var gallons = document.myform.txtgallons.value;
+	var stMiles = document.myform.stMiles.value;
+	var endMiles = document.myform.endMiles.value;
+	var gallons = document.myform.gallons.value;
 	mpg = (endMiles - stMiles) / gallons;
 	document.myform.milePerGallon.value = mpg;
      if(isNaN(stMiles) || isNaN(endMiles) || isNaN(gallons)) {
