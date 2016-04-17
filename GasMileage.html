@@ -20,11 +20,13 @@ function calcMPG() {
 	
      if(isNaN(stMiles) || isNaN(endMiles) || isNaN(gallons)) {
     alert("Please enter a number.");
+		}else if
+		 ((stMiles > 0) || (endMiles > 0) || (gallons > 0)) {
+		  alert ("Please enter a number greater than 0.");
 		}else{
 		 mpg = (endMiles - stMiles) / gallons;
 	     document.myform.milePerGallon.value = mpg;
 		}
-		
 }
 //-->
 </script>
