@@ -13,6 +13,7 @@ Date: 04/15/2016
 <title>Miles per Gallon</title>
 <script language="JavaScript">
 <!--
+document.addEventListener("change", calcMPG);
 function calcMPG() {
 	var stMiles = document.myform.stMiles.value;
 	var endMiles = document.myform.endMiles.value;
@@ -39,11 +40,11 @@ function calcMPG() {
 <center><form name="myform">
 <fieldset>
 <legend><strong>MPG Input</strong></legend>
- Start Miles: <input type="text" name="stMiles" size ="10" value="0"  /><br /><br />
- Ending Miles: <input type="text" name="endMiles" size ="10" value="0"  /><br /><br />
- Gallons Used: <input type="text" name="gallons" size ="10" value="0"  /><br /><br />
-<input type="button"  value="calculate"  onClick="calcMPG()"><br /><br />
- Miles per Gallon: <input type="text" name="milePerGallon" size ="10" value="0"><br /><br />
+ Start Miles: <input type="text" name="stMiles" size ="10"   /><br /><br />
+ Ending Miles: <input type="text" name="endMiles" size ="10"   /><br /><br />
+ Gallons Used: <input type="text" name="gallons" size ="10"   /><br /><br />
+
+ Miles per Gallon: <input type="text" name="milePerGallon" size ="10" ><br /><br />
 
 <input type = "reset" value = "Reset" />
 </fieldset>
