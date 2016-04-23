@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>  
+<head>
+<!--
+   CMST 388 7980
+   Project 1: From Validation
+   Author: Teresa Sheridan
+   Date: 04/13/2016
+  -->
+  <meta charset="UTF-8"/>
+  <link href="form.css" rel="stylesheet" type="text/css"/>
+  <title>Form Validation</title>
+
+      
+<script type="text/javascript">
+   
+      
+      function validate()
+      {
+      
+         if( document.myForm.fName.value == "" )
+         {
+            alert( "Please provide your first name!" );
+            document.myForm.fName.focus() ;
+            return false;
+         }
+		 
+		 if( document.myForm.lName.value == "" )
+         {
+            alert( "Please provide your last name!" );
+            document.myForm.lName.focus() ;
+            return false;
+         }
+         
+
+         if( document.myForm.EMail.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         
+         
+         
+         if( document.myForm.sQuest.value == "-1" )
+         {
+            alert( "Please choose an option." );
+            return false;
+         }
+         return( true );
+		 
+		 if( document.myForm.qAnswer.value == "" )
+         {
+            alert( "Please provide your answer!" );
+            document.myForm.qAnswer.focus() ;
+            return false;
+         }
+		 
+		 if( document.myForm.mList.value == "" )
+         {
+            alert( "Please provide your last name!" );
+            document.myForm.mList.focus() ;
+            return false;
+         }
+		 
+		 if( document.myForm.mList2.value == "" )
+         {
+            alert( "Please choose an option!" );
+            document.myForm.mList2.focus() ;
+            return false;
+         }
+      }
+	  
+	  
+	  
+	  function checkPass(){
+
+    
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+   
+    var message = document.getElementById('confirmMessage');
+    
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    
+    if(pass1.value == pass2.value){
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!"
+    }else{
+        
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!"
+    }
+	
+	
+}
+   //-->
+</script>
+      </script>
+      
+   </head>
+   
+   <body>
+      <form action="MAILTO:tianmax@hotmail.com" method="post" name="myForm" onsubmit="return(validate());">
+         <table cellspacing="2" cellpadding="2" border="1">
+            
+            <tr>
+               <td align="right">First Name: (required)</td>
+               <td><input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
+				    onclick="if (this.defaultValue==this.value) this.value=''"  value="First Name" name="fName"/></td>
+			   
+            </tr>
+			
+			<tr>
+               <td align="right">Last Name: (required)</td>
+               <td><input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
+						 onclick="if (this.defaultValue==this.value) this.value=''" value="Last Name" name="lName"/></td>
+            </tr>
+            
+            <tr>
+               <td align="right">EMail: (required)</td>
+               <td><input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
+						 onclick="if (this.defaultValue==this.value) this.value=''" value="Email Address" name="txtEmail"/></td>
+            </tr>
+            
+            <tr>
+			  <td align="right">Enter Password</td>
+			  <td><input type="password" name="Pass1" id="pass1"/></td>
+			</tr>
+			
+			<tr>
+			  <td align="right">Re-enter Password</td>
+			  <td><input type="password" name="txtPass2" id="pass2" onkeyup="checkPass(); return false;">
+              <span id="confirmMessage" class="confirmMessage"></span></td>
+			</tr>
+			
+			<tr>
+			  <td align="right">Choose a security question.</td>
+			  <td>
+			    <select name="sQuest">
+                     <option value="-1" selected>[choose yours]</option>
+                     <option value="1">What is the name of your first pet?</option>
+                     <option value="2">What is your favorite color?</option>
+                     <option value="3">What city were you born in?</option>
+                  </select>
+			  </td>
+			</tr>
+			
+			<tr>
+			  <td align="right">Answer:</td>
+			  <td>
+			    <input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
+		         onclick="if (this.defaultValue==this.value) this.value=''" value="Question Answer" name="qAnswer">
+			  </td>
+			</tr>
+			
+			<tr>
+               <td align="right">Join our Mailing list</td>
+               <td>
+                  <select name="mList">
+                     <option value="-1" selected>[choose yours]</option>
+                     <option value="1">Yes</option>
+                     <option value="2">No</option>
+                  </select>
+               </td>
+            </tr>
+			
+			<tr>
+              <td align="right">Mailing List Subscriptions.</td>
+              <td>
+                <input type="checkbox" name="mList2" value="JavaScript for Beginners" id="cor">
+				</input><label> JavaScript for Beginners</label>
+                <br />
+                <input type="checkbox" name="mList2" value="Thinking in Code" id="sof"> 
+				</input><label> Thinking in Code</label>
+                <br />
+                <input type="checkbox" name="mList2" value="Helpful Hints and Tricks to Coding" 
+				id="lspa"></input><label> Helpful Hints and Tricks to Coding</label>
+                <br /><br /><br />
+              </td>
+            </tr>			  
+            
+            <tr>
+               <td align="right"></td>
+               <td><input type="submit" value="Submit" />
+			   <div class="divider"/>
+			   <input type = "reset" value = "Reset" /></td>
+            </tr>
+			
+            
+         </table>
+      </form>
+      
+   </body>
+</html>
