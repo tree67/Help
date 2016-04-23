@@ -16,7 +16,7 @@
    
       
       function validate()
-      {
+      { 
       
          if( document.myForm.fName.value == "" )
          {
@@ -42,7 +42,7 @@
          
          
          
-         if( document.myForm.sQuest.value == "-1" )
+         if( document.myForm.sQuest.value == "" )
          {
             alert( "Please choose an option." );
             return false;
@@ -58,8 +58,15 @@
 		 
 		 if( document.myForm.mList.value == "" )
          {
-            alert( "Please provide your last name!" );
+            alert( "Please choose an option!" );
             document.myForm.mList.focus() ;
+            return false;
+         }
+		 
+		 if( document.myForm.mList2.value == "" )
+         {
+            alert( "Please choose an option!" );
+            document.myForm.mList2.focus() ;
             return false;
          }
 		 
@@ -109,26 +116,26 @@
             
             <tr>
                <td align="right">First Name: (required)</td>
-               <td><input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
-				    onclick="if (this.defaultValue==this.value) this.value=''"  value="First Name" name="fName"/></td>
+               <td><input type="text" onclick="if (this.defaultValue==this.value) this.value=''"  
+			        value="First Name" name="fName"/></td>
 			   
             </tr>
 			
 			<tr>
                <td align="right">Last Name: (required)</td>
-               <td><input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
-						 onclick="if (this.defaultValue==this.value) this.value=''" value="Last Name" name="lName"/></td>
+               <td><input type="text" onclick="if (this.defaultValue==this.value) this.value=''" 
+			        value="Last Name" name="lName"/></td>
             </tr>
             
             <tr>
                <td align="right">EMail: (required)</td>
-               <td><input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
-						 onclick="if (this.defaultValue==this.value) this.value=''" value="Email Address" name="txtEmail"/></td>
+               <td><input type="text" onclick="if (this.defaultValue==this.value) this.value=''" 
+			        value="Email Address" name="EMail"/></td>
             </tr>
             
             <tr>
 			  <td align="right">Enter Password</td>
-			  <td><input type="password" name="Pass1" id="pass1"/></td>
+			  <td><input type="password" name="pass1" id="pass1"/></td>
 			</tr>
 			
 			<tr>
@@ -152,8 +159,8 @@
 			<tr>
 			  <td align="right">Answer:</td>
 			  <td>
-			    <input type="text" onblur="if (this.value=='') this.value=this.defaultValue" 
-		         onclick="if (this.defaultValue==this.value) this.value=''" value="Question Answer" name="qAnswer">
+			    <input type="text" onclick="if (this.defaultValue==this.value) this.value=''" 
+				 value="Question Answer" name="qAnswer"/>
 			  </td>
 			</tr>
 			
