@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+   CMST 388 7980
+   Case Final Project
+   Author: Teresa Sheridan
+   Date: 04/27/2016
+  -->
+  <meta charset="UTF-8"/>
+  <link href="finalA.css" rel="stylesheet" type="text/css"/>
+  
+  <script type="text/javascript">
+//ROTATING BANNER BY CIARAN O'KELLY 2012 - BLOG.CRONDESIGN.COM
+
+//BANNER SETUP:
+var imageCount = 5; 	//how many images in total?
+var changeSpeed = 3; 	//how many seconds between fades?
+var fadeSpeed = 0.5;	//how many seconds should the fade take?
+var fps = 25;			//animation frames per second
+
+//BANNER FUNCTIONS:
+var topImgID
+var changeInterval
+
+function $(id){ //a simple shortcut function:
+	return(document.getElementById(id));
+}
+
+function changeOpac(obj, opacity) {//change the opacity for different browsers:
+	obj = obj.style; 
+	obj.opacity = (opacity / 100);
+	obj.MozOpacity = (opacity / 100);
+	obj.KhtmlOpacity = (opacity / 100);
+	obj.filter = "alpha(opacity=" + opacity + ")";
+}
+
+function changeImage(){
+	var nextImgID = ( topImgID+1 <= imageCount ? topImgID+1 : 1 ); //get id number of next image in list
+	var nextImg = $('banner'+nextImgID);
+	var lastImg = $('banner'+topImgID);
+	var opac = 0;
+	changeOpac( nextImg, opac) //make next image invisible, then bring it to the top:
+	lastImg.style.zIndex = 2;
+	nextImg.style.zIndex = 3;
+	
+	var fadeInterval = setInterval(function(){ //run the fade on interval:
+		if(opac < 100){//continue fade:
+			opac += Math.ceil(100/(fadeSpeed*fps));
+			changeOpac(nextImg, opac);
+		}else{//end fade:
+			lastImg.style.zIndex = 1;
+			clearInterval(fadeInterval);
+		}
+	}, 1000/fps)
+	
+	topImgID = nextImgID; //prepare the next fade
+}
+
+function startBanner(firstImageID){
+	topImgID = (firstImageID==undefined ? 1+Math.floor(Math.random()*(imageCount)) : firstImageID);
+	$('banner'+topImgID).style.zIndex = 2;
+	changeInterval = setInterval(changeImage, changeSpeed*1000);
+}
+
+</script>
+  
+</head>
+
+
+<body onload="startBanner(1)">
+    <div id="bannerbar">
+        <div id="banner2" class="banner">
+            <h1>It runs on a loop</h1>
+        </div>
+        <div id="banner3" class="banner">
+            <h1>The images are actually div tags</h1>
+        </div>
+        <div id="banner4" class="banner">
+            <h1>So they can contain text, colours or other content</h1>
+        </div>
+        <div id="banner5" class="banner">
+            <h1>You can control the speed, the start image &amp; number of images</h1>
+        </div>
+        <div id="banner1" class="banner">
+            <h1>This banner fades between images</h1>
+        </div>
+   </div>
+
+
+  <p>Napoleon Mercure</p>
+  <p>Born: 09/10/1878 L'Ange_gardien de Rowville, Canada</p>
+  <p>Died: USA</p>
+  <p>Father: Louis Stanislas Mercure</p>
+  <p>Mother: Regina Courtemauche</p>
+</body>
+</html>

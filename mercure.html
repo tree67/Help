@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+   CMST 388 7980
+   Case Final Project
+   Author: Teresa Sheridan
+   Date: 04/27/2016
+  -->
+  <meta charset="UTF-8"/>
+  <link href="styles/finalA.css" rel="stylesheet" type="text/css"/>
+  <title>Connections</title>
+<script type="text/javascript"> 
+  
+var imageCount = 5;  
+var changeSpeed = 3;  
+var fadeSpeed = 0.5; 
+var fps = 25;  
+
+
+var topImgID
+var changeInterval
+
+function $(id){
+ return(document.getElementById(id));
+}
+
+function changeOpac(obj, opacity) {
+ obj = obj.style; 
+ obj.opacity = (opacity / 100);
+ obj.MozOpacity = (opacity / 100);
+ obj.KhtmlOpacity = (opacity / 100);
+ obj.filter = "alpha(opacity=" + opacity + ")";
+}
+
+function changeImage(){
+ var nextImgID = ( topImgID+1 <= imageCount ? topImgID+1 : 1 ); 
+ var nextImg = $('banner'+nextImgID);
+ var lastImg = $('banner'+topImgID);
+ var opac = 0;
+ changeOpac( nextImg, opac) 
+ lastImg.style.zIndex = 2;
+ nextImg.style.zIndex = 3;
+
+ var fadeInterval = setInterval(function(){ 
+  if(opac < 100){
+   opac += Math.ceil(100/(fadeSpeed*fps));
+   changeOpac(nextImg, opac);
+  }else{
+   lastImg.style.zIndex = 1;
+   clearInterval(fadeInterval);
+  }
+ }, 1000/fps)
+
+ topImgID = nextImgID; 
+}
+
+function startBanner(firstImageID){
+ topImgID = (firstImageID==undefined ? 1+Math.floor(Math.random()*(imageCount)) : firstImageID);
+ $('banner'+topImgID).style.zIndex = 2;
+ changeInterval = setInterval(changeImage, changeSpeed*1000);
+}
+</script>
+</head>
+<body onload="startBanner(1)">
+
+<div id="wrapper">
+<div id="banner2" class="banner">
+    <h1>If you cannot</h1>
+</div>
+<div id="banner3" class="banner">
+    <h1>get rid of the </h1>
+</div>
+<div id="banner4" class="banner">
+    <h1>family skeleton,</h1>
+</div>
+<div id="banner5" class="banner">
+    <h1>you may as well make it dance</h1>
+</div>
+<div id="banner1" class="banner">
+    <h1>— George Bernard Shaw</h1>
+</div>
+<br /><br />
+<br />
+<div id="nav">
+ <ul>
+      
+      <li><a href="finalprojectIndex.html" title="Home">Home</a></li>
+      <li><a href="finalProjectBall.html" title="Ball Family">Ball Family</a></li>
+      <li><a href="finalProjectCain.html" title="Cain Family">Cain Family</a></li>
+	  <li><a href="finalProjectMercure.html" title="Mercure Family">Mercure Family</a></li>
+	  <li><a href="finalProjectSheridan.html" title="Sheridan Family">Sheridan Family</a></li>
+	  <li><a href="finalprojectContact.html" title="Contact Information">Contact Information</a></li>
+   </ul>
+</div><!--close nav-->
+<br /><br /><br />
+
+
+
+
+
+<h2>The Mercure Family thru the Male line</h2>
+   <p>The Mercure name began in Italy and is derived from St. Mercurius of Cappadocia, meanwhile others suggest that 
+      the name orginated in France. </p><br /> 
+
+   <p>Below are links for the Mercure line following the male line back to the 1800's.<br />
+      Click on a name to find more information about the ancestor such as date of birth, death(when
+      available), as well as any documentation or outside links.</p>
+   
+<div id="mercure"></div>
+<script>
+var myArray = [
+{
+"display": "Teresa Mercure",
+"url": "teresaMercure.html"
+},
+{
+"display": "Kenneth Roland Mercure",
+"url": "kennethMercure.html"
+},
+{
+"display": "Dolar Mercure",
+"url": "dolarMercure.html"
+},
+{
+"display": "Napoleon Mercure",
+"url": "napMercure.html"
+},
+{
+"display": "Louis Mercure",
+"url": "louisMercure.html"
+}
+];
+
+myFunction(myArray);
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += '<a href="' + arr[i].url + '">' + 
+        arr[i].display + '</a><br>';
+    }
+	
+    document.getElementById("mercure").innerHTML = out;
+	
+}
+</script>
+</div><!--close wrapper-->
+</body>
+</html>
